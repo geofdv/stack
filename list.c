@@ -79,7 +79,7 @@ list_push_front(list_t *l, void *data)
 int
 list_pop_front(list_t *l)
 {
-	node_t *cur_head;
+	node_t *old_head;
 
 	if (l == NULL) {
 		return -1;
@@ -89,10 +89,10 @@ list_pop_front(list_t *l)
 		return -1;
 	}
 
-	cur_head = l->head;
-	l->head = cur_head->next;
+	old_head = l->head;
+	l->head = old_head->next;
 
-	node_destroy(cur_head);
+	node_destroy(old_head);
 
 	l->len--;
 
