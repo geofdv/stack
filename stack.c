@@ -19,7 +19,7 @@ stack_create(int limit)
 	}
 
 	s->list = list_create();
-	if (!s->list) {
+	if (s->list == NULL) {
 		free(s);
 		return NULL;
 	}
@@ -32,6 +32,10 @@ stack_create(int limit)
 void
 stack_destroy(stack_t *s)
 {
+	if (s == NULL) {
+		return ;
+	}
+
 	list_destroy(s->list);
 	free(s);
 }
