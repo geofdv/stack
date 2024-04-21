@@ -59,18 +59,18 @@ list_destroy(list_t *l)
 int
 list_push_front(list_t *l, void *data)
 {
-	node_t *new_node;
+	node_t *new_head;
 
 	if (l == NULL) {
 		return -1;
 	}
 
-	new_node = node_create(l->head, data);
-	if (new_node == NULL) {
+	new_head = node_create(l->head, data);
+	if (new_head == NULL) {
 		return -1;
 	}
 
-	l->head = new_node;
+	l->head = new_head;
 	l->len++;
 
 	return 0;
@@ -107,6 +107,10 @@ list_front(list_t *l, void **data)
 	}
 
 	if (data == NULL) {
+		return -1;
+	}
+
+	if (list_is_empty(l) == 1) {
 		return -1;
 	}
 

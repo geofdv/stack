@@ -15,7 +15,6 @@ test1()
 	list_t *l;
 
 	l = list_create();
-
 	assert(list_is_empty(l) == 1);
 	assert(list_length(l) == 0);
 
@@ -24,6 +23,28 @@ test1()
 
 static void
 test2()
+{
+	list_t *l;
+
+	void *data;
+	int retcode;
+
+	l = list_create();
+	assert(list_is_empty(l) == 1);
+	assert(list_length(l) == 0);
+
+	data = NULL;
+	retcode = list_front(l, &data);
+	assert(retcode == -1);
+
+	retcode = list_pop_front(l);
+	assert(retcode == -1);
+
+	list_destroy(l);
+}
+
+static void
+test3()
 {
 	int nums[] = {1, 2, 3};
 	int n = lengthof(nums);	
@@ -67,6 +88,7 @@ main()
 {
 	test1();
 	test2();
+	test3();
 
 	return 0;
 }
