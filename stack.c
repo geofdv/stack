@@ -5,11 +5,10 @@
 
 struct stack_s {
 	list_t *list;
-	int limit;
 };
 
 stack_t *
-stack_create(int limit)
+stack_create()
 {
 	stack_t *s;
 
@@ -23,8 +22,6 @@ stack_create(int limit)
 		free(s);
 		return NULL;
 	}
-
-	s->limit = limit;
 
 	return s;
 }
@@ -46,10 +43,6 @@ stack_push(stack_t *s, void *data)
 	int retcode;
 	
 	if (s == NULL) {
-		return -1;
-	}
-
-	if (stack_is_full(s) == 1) {
 		return -1;
 	}
 
@@ -111,8 +104,8 @@ stack_is_empty(stack_t *s)
 }
 
 int
-stack_is_full(stack_t *s)
+stack_length(stack_t *s)
 {
-	return s == NULL ? 0 : s->limit == list_length(s->list);
+	return s == NULL ? 0 : list_length(s->list);
 }
 

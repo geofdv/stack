@@ -9,7 +9,7 @@ typedef struct stack_s stack_t;
 
 /* Lifetime managment. */
 stack_t *
-stack_create(int limit);
+stack_create();
 
 void
 stack_destroy(stack_t *s);
@@ -29,7 +29,7 @@ int
 stack_is_empty(stack_t *s);
 
 int
-stack_is_full(stack_t *s);
+stack_length(stack_t *s);
 
 #endif /* STACK_SENTRY_H */
 

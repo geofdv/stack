@@ -14,10 +14,10 @@ test1()
 {
 	stack_t *s;
 
-	s = stack_create(10 /* max number of elems */);
+	s = stack_create();
 	
 	assert(stack_is_empty(s) == 1);
-	assert(stack_is_full(s) == 0);
+	assert(stack_length(s) == 0);
 
 	stack_destroy(s);
 }
@@ -29,12 +29,11 @@ test2()
 	int n = lengthof(nums);	
 
 	stack_t *s;
-	int limit = n;
 
 	int i;
 	int retcode;
 
-	s = stack_create(limit);
+	s = stack_create();
 
 	for (i = 0; i < n; i++) {
 		retcode = stack_push(s, &nums[i]);
@@ -42,7 +41,7 @@ test2()
 		assert(stack_is_empty(s) == 0);
 	}
 
-	assert(stack_is_full(s) == 1);
+	assert(stack_length(s) == n);
 
 	i = 0;
 	while (stack_is_empty(s) == 0) {
