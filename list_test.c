@@ -10,7 +10,7 @@
 	*(type *)(ptr)
 
 static void
-test1()
+test_creation()
 {
 	list_t *l;
 
@@ -22,7 +22,7 @@ test1()
 }
 
 static void
-test2()
+test_empty()
 {
 	list_t *l;
 
@@ -44,7 +44,7 @@ test2()
 }
 
 static void
-test3()
+test_usage()
 {
 	int nums[] = {1, 2, 3};
 	int n = lengthof(nums);	
@@ -86,9 +86,9 @@ test3()
 int
 main()
 {
-	test1();
-	test2();
-	test3();
+	test_creation();
+	test_empty();
+	test_usage();
 
 	return 0;
 }

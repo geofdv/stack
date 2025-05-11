@@ -10,7 +10,7 @@
 	*(type *)(ptr)
 
 static void
-test1()
+test_creation()
 {
 	stack_t *s;
 
@@ -23,7 +23,7 @@ test1()
 }
 
 static void
-test2()
+test_usage()
 {
 	int nums[] = {1, 2, 3};
 	int n = lengthof(nums);	
@@ -65,8 +65,8 @@ test2()
 int
 main()
 {
-	test1();
-	test2();
+	test_creation();
+	test_usage();
 
 	return 0;
 }
